@@ -1,0 +1,34 @@
+{
+  "_hinweis": "Liste aller Plugins in diesem Marktplatz. 'reviewed_commit' ist der zuletzt geprüfte und übernommene Stand des Original-Repositories. Pflege über scripts/update_plugin.py.",
+  "plugins": [
+    {
+      "name": "andrej-karpathy-skills",
+      "upstream": "https://github.com/multica-ai/andrej-karpathy-skills",
+      "branch": "main",
+      "include": [
+        ".claude-plugin/plugin.json",
+        "skills",
+        "LICENSE",
+        "README.md"
+      ],
+      "reviewed_commit": "2c60614",
+      "reviewed_date": "2026-11-02",
+      "license": "MIT"
+    },
+    {
+      "name": "marketing-skills",
+      "upstream": "https://github.com/coreyhaines31/marketingskills",
+      "branch": "main",
+      "include": [
+        ".claude-plugin/plugin.json",
+        "skills",
+        "LICENSE",
+        "README.md"
+      ],
+      "reviewed_commit": "88c79f6",
+      "reviewed_date": "2026-11-02",
+      "license": "MIT",
+      "notiz": "Ordner tools/ (Marketing-CLIs mit API-Schlüsseln) bewusst nicht übernommen, um die Angriffsfläche klein zu halten."
+    }
+  ]
+}

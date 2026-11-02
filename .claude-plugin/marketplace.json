@@ -1,0 +1,21 @@
+{
+  "name": "bestoug-plugins",
+  "owner": {
+    "name": "Bestoug"
+  },
+  "metadata": {
+    "description": "Philipps geprüfte Claude-Plugins. Updates werden vor der Übernahme auf Schadcode geprüft."
+  },
+  "plugins": [
+    {
+      "name": "andrej-karpathy-skills",
+      "source": "./plugins/andrej-karpathy-skills",
+      "description": "Behavioral guidelines to reduce common LLM coding mistakes, derived from Andrej Karpathy's observations on LLM coding pitfalls"
+    },
+    {
+      "name": "marketing-skills",
+      "source": "./plugins/marketing-skills",
+      "description": "Marketing skills for AI agents — conversion optimization, copywriting, SEO, paid ads, ad creative, and growth"
+    }
+  ]
+}
