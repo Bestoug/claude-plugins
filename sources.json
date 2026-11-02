@@ -29,6 +29,127 @@
       "reviewed_date": "2026-11-02",
       "license": "MIT",
       "notiz": "Ordner tools/ (Marketing-CLIs mit API-Schlüsseln) bewusst nicht übernommen, um die Angriffsfläche klein zu halten."
+    },
+    {
+      "name": "feature-dev",
+      "upstream": "https://github.com/anthropics/claude-plugins-official",
+      "branch": "main",
+      "subdir": "plugins/feature-dev",
+      "include": [
+        ".claude-plugin",
+        "commands",
+        "agents",
+        "skills",
+        "hooks",
+        "LICENSE",
+        "README.md"
+      ],
+      "reviewed_commit": "a7ba5b9",
+      "reviewed_date": "2026-11-02",
+      "license": "siehe LICENSE",
+      "autor": "Anthropic"
+    },
+    {
+      "name": "code-review",
+      "upstream": "https://github.com/anthropics/claude-plugins-official",
+      "branch": "main",
+      "subdir": "plugins/code-review",
+      "include": [
+        ".claude-plugin",
+        "commands",
+        "agents",
+        "skills",
+        "hooks",
+        "LICENSE",
+        "README.md"
+      ],
+      "reviewed_commit": "a7ba5b9",
+      "reviewed_date": "2026-11-02",
+      "license": "siehe LICENSE",
+      "autor": "Anthropic"
+    },
+    {
+      "name": "security-guidance",
+      "upstream": "https://github.com/anthropics/claude-plugins-official",
+      "branch": "main",
+      "subdir": "plugins/security-guidance",
+      "include": [
+        ".claude-plugin",
+        "commands",
+        "agents",
+        "skills",
+        "hooks",
+        "LICENSE",
+        "README.md"
+      ],
+      "reviewed_commit": "a7ba5b9",
+      "reviewed_date": "2026-11-02",
+      "license": "siehe LICENSE",
+      "autor": "Anthropic"
+    },
+    {
+      "name": "claude-md-management",
+      "upstream": "https://github.com/anthropics/claude-plugins-official",
+      "branch": "main",
+      "subdir": "plugins/claude-md-management",
+      "include": [
+        ".claude-plugin",
+        "commands",
+        "agents",
+        "skills",
+        "hooks",
+        "LICENSE",
+        "README.md"
+      ],
+      "reviewed_commit": "a7ba5b9",
+      "reviewed_date": "2026-11-02",
+      "license": "siehe LICENSE",
+      "autor": "Anthropic"
+    },
+    {
+      "name": "swift-lsp",
+      "upstream": "https://github.com/anthropics/claude-plugins-official",
+      "branch": "main",
+      "subdir": "plugins/swift-lsp",
+      "include": [
+        "LICENSE",
+        "README.md"
+      ],
+      "reviewed_commit": "a7ba5b9",
+      "reviewed_date": "2026-11-02",
+      "license": "siehe LICENSE",
+      "autor": "Anthropic",
+      "description": "Swift language server (SourceKit-LSP) for code intelligence",
+      "marketplace_extra": {
+        "version": "1.0.0",
+        "strict": false,
+        "lspServers": {
+          "sourcekit-lsp": {
+            "command": "sourcekit-lsp",
+            "extensionToLanguage": {
+              ".swift": "swift"
+            }
+          }
+        }
+      },
+      "notiz": "Kein plugin.json im Original; die LSP-Konfiguration steht im Katalogeintrag (marketplace_extra)."
+    },
+    {
+      "name": "superpowers",
+      "upstream": "https://github.com/obra/superpowers",
+      "branch": "main",
+      "include": [
+        ".claude-plugin/plugin.json",
+        "skills",
+        "hooks",
+        "LICENSE",
+        "README.md"
+      ],
+      "reviewed_commit": "2ce8aa1",
+      "reviewed_date": "2026-11-02",
+      "license": "MIT",
+      "autor": "Jesse Vincent (obra)",
+      "notiz": "Hook beim Sitzungsstart lädt nur die eigene Skill-Anleitung. Brainstorming-Skill kann lokal einen kleinen Webserver (localhost) starten, der ein Logo von primeradiant.com lädt."
     }
   ]
 }
