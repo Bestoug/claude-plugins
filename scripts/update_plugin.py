@@ -6,6 +6,7 @@ Kopiert nur die in sources.json unter "include" genannten Pfade (relativ zu
 "subdir", falls gesetzt). Optional:
   "map":      {"quelle": "ziel"} kopiert Pfade unter neuem Namen
   "manifest": {...} schreibt .claude-plugin/plugin.json, falls das Original keins hat
+  "exclude":  ["glob", ...] entfernt nach dem Kopieren passende Dateien (relativ zu plugins/<name>)
   "patches":  [{"file", "old", "new"}] ersetzt Text nach dem Kopieren; {upstream_version}
               wird durch die Version aus pyproject.toml/package.json ersetzt.
               Fehlt "old", bricht das Skript ab (Upstream hat sich geändert → neu prüfen).
@@ -73,6 +74,13 @@ def main():
             shutil.copytree(src, dst, symlinks=False)
         else:
             shutil.copy2(src, dst)
+
+    for pattern in entry.get("exclude", []):
+        for f in sorted(target.glob(pattern), reverse=True):
+            if f.is_dir():
+                shutil.rmtree(f)
+            elif f.exists():
+                f.unlink()
 
     manifest = target / ".claude-plugin" / "plugin.json"
     if "manifest" in entry and not manifest.exists():

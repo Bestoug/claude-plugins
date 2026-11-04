@@ -66,6 +66,11 @@
       "name": "graphify",
       "source": "./plugins/graphify",
       "description": "Baut auf Zuruf (/graphify) aus Code, Doku, PDFs und Bildern einen abfragbaren Wissensgraphen. Nur Skill, keine Hooks."
+    },
+    {
+      "name": "anatomy",
+      "source": "./plugins/anatomy",
+      "description": "Erklärt Technik als interaktive isometrische Maschine (SVG/WebGL, eine HTML-Datei). Ohne Community-Galerie-Upload."
     }
   ]
 }

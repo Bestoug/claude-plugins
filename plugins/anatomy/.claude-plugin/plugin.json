@@ -1,0 +1,9 @@
+{
+  "name": "anatomy",
+  "description": "Erklärt Technik als interaktive isometrische Maschine (SVG/WebGL, eine HTML-Datei). Ohne Community-Galerie-Upload.",
+  "author": {
+    "name": "wheresryan22",
+    "url": "https://github.com/wheresryan22/anatomy"
+  },
+  "license": "MIT"
+}

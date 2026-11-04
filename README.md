@@ -12,6 +12,7 @@ Hier liegen Kopien fremder Claude-Plugins. Neue Versionen der Originale werden j
 | superpowers | [obra/superpowers](https://github.com/obra/superpowers) | MIT |
 | ponytail | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | MIT |
 | graphify (nur Skill, angepasst: nur auf Zuruf, feste Paketversion) | [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | Apache-2.0 |
+| anatomy (ohne Galerie-Upload, nur auf Zuruf) | [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy) | MIT |
 | feature-dev, code-review, security-guidance, claude-md-management, swift-lsp | [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) (Unterordner `plugins/`) | siehe LICENSE |
 
 Die geprüften Stände stehen in `sources.json`. Alle Rechte an den Plugins liegen bei den jeweiligen Autoren; die Lizenzdateien liegen in den Plugin-Ordnern.

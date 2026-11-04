@@ -211,6 +211,57 @@
       "reviewed_date": "2026-11-04",
       "license": "Apache-2.0 (zusätzlich MIT-Datei)",
       "notiz": "Original hat kein Claude-Plugin-Format: übernommen wird nur der Claude-Skill samt references, ohne Hooks. Patches: Skill springt nur auf Zuruf an (Original: bei jeder Code-Frage) und installiert das PyPI-Paket graphifyy nur in der geprüften Version. Keine Telemetrie im Paket; Netzzugriff nur für ausdrücklich angegebene URLs. Cloud-Angebot graphify.com nicht nutzen."
+    },
+    {
+      "name": "anatomy",
+      "upstream": "https://github.com/wheresryan22/anatomy",
+      "branch": "main",
+      "map": {
+        "SKILL.md": "skills/anatomy/SKILL.md",
+        "references": "skills/anatomy/references",
+        "kit": "skills/anatomy/kit",
+        "scripts": "skills/anatomy/scripts",
+        "examples": "skills/anatomy/examples",
+        "LICENSE": "LICENSE",
+        "README.md": "README.md"
+      },
+      "exclude": [
+        "skills/anatomy/scripts/*.test.mjs",
+        "skills/anatomy/scripts/publish.mjs",
+        "skills/anatomy/references/publish.md",
+        "skills/anatomy/examples/**/*.pdf",
+        "skills/anatomy/examples/**/*.html"
+      ],
+      "manifest": {
+        "name": "anatomy",
+        "description": "Erklärt Technik als interaktive isometrische Maschine (SVG/WebGL, eine HTML-Datei). Ohne Community-Galerie-Upload.",
+        "author": {
+          "name": "wheresryan22",
+          "url": "https://github.com/wheresryan22/anatomy"
+        },
+        "license": "MIT"
+      },
+      "patches": [
+        {
+          "file": "skills/anatomy/SKILL.md",
+          "old": "Use this whenever someone wants an isometric illustration, an explanatory diagram or figure for docs, a blog post, a landing page or an article, a \"Linear-style\" or \"premium\" technical drawing, an interactive explainer, or an SVG that shows how a system, algorithm or component works, even if they never say \"isometric\".",
+          "new": "Use when the user asks for Anatomy (/anatomy), an isometric figure, or an interactive machine-style explainer of how something works; not for ordinary charts or simple diagrams."
+        },
+        {
+          "file": "skills/anatomy/SKILL.md",
+          "old": " and publishes it to the Anatomy community gallery when asked.",
+          "new": "."
+        },
+        {
+          "file": "skills/anatomy/SKILL.md",
+          "old": "- `references/publish.md`: sharing a finished figure in the community gallery with `scripts/publish.mjs`, only when the user asks; nothing is pushed for them.\n",
+          "new": "- Publishing to the community gallery is disabled in this copy (privacy): never upload or push figures anywhere.\n"
+        }
+      ],
+      "reviewed_commit": "1482e84",
+      "reviewed_date": "2026-11-04",
+      "license": "MIT",
+      "notiz": "Skill-only, als Plugin verpackt. Skripte starten lokal headless Chrome (Vorschaubilder, Prüfungen) über 127.0.0.1, kein Netz nach außen. Bewusst entfernt: publish.mjs + references/publish.md (öffentlicher Galerie-Upload per git push/gh – Datenschutz), Tests, fertige PDF/HTML-Beispiele (25 MB). Patch: Skill springt nur bei Anatomy/isometrischen Erklärfiguren an (Original: bei jedem Diagramm)."
     }
   ]
 }
