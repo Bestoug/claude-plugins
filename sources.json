@@ -165,7 +165,14 @@
       "reviewed_commit": "96608e0",
       "reviewed_date": "2026-11-04",
       "license": "MIT",
-      "notiz": "Node-Hooks (SessionStart, SubagentStart, UserPromptSubmit) schreiben nur lokal (~/.claude, ~/.config/ponytail). Webhook-Option ist standardmäßig leer: dann verlässt nichts den Rechner. Webhook nicht einrichten."
+      "notiz": "Node-Hooks (SessionStart, SubagentStart, UserPromptSubmit) schreiben nur lokal (~/.claude, ~/.config/ponytail). Webhook-Option ist standardmäßig leer: dann verlässt nichts den Rechner. Webhook nicht einrichten. Patch: Schlüssel 'types' aus plugin.json entfernt (claude.ai kennt ihn nicht, nur Warnung).",
+      "patches": [
+        {
+          "file": ".claude-plugin/plugin.json",
+          "old": "  \"types\": \"./hooks/band/types.d.ts\",\n",
+          "new": ""
+        }
+      ]
     },
     {
       "name": "graphify",
