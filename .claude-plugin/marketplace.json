@@ -56,6 +56,16 @@
       "name": "superpowers",
       "source": "./plugins/superpowers",
       "description": "Core skills library for Claude Code: TDD, debugging, collaboration patterns, and proven techniques"
+    },
+    {
+      "name": "ponytail",
+      "source": "./plugins/ponytail",
+      "description": "Lazy senior dev mode. Forces the simplest, shortest solution that actually works: YAGNI, stdlib first, no unrequested abstractions."
+    },
+    {
+      "name": "graphify",
+      "source": "./plugins/graphify",
+      "description": "Baut auf Zuruf (/graphify) aus Code, Doku, PDFs und Bildern einen abfragbaren Wissensgraphen. Nur Skill, keine Hooks."
     }
   ]
 }

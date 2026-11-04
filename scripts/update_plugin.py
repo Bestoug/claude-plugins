@@ -3,12 +3,19 @@
 Aufruf:  python3 scripts/update_plugin.py <name> <pfad-zum-upstream-klon>
 
 Kopiert nur die in sources.json unter "include" genannten Pfade (relativ zu
-"subdir", falls gesetzt), setzt
+"subdir", falls gesetzt). Optional:
+  "map":      {"quelle": "ziel"} kopiert Pfade unter neuem Namen
+  "manifest": {...} schreibt .claude-plugin/plugin.json, falls das Original keins hat
+  "patches":  [{"file", "old", "new"}] ersetzt Text nach dem Kopieren; {upstream_version}
+              wird durch die Version aus pyproject.toml/package.json ersetzt.
+              Fehlt "old", bricht das Skript ab (Upstream hat sich geändert → neu prüfen).
+Setzt
 reviewed_commit/reviewed_date und baut .claude-plugin/marketplace.json neu.
 Führt keinen Code aus dem Upstream aus.
 """
 import datetime
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -55,16 +62,37 @@ def main():
         shutil.rmtree(target)
     target.mkdir(parents=True)
     base = upstream / entry.get("subdir", "")
-    for rel in entry["include"]:
+    pairs = [(rel, rel) for rel in entry.get("include", [])] + list(entry.get("map", {}).items())
+    for rel, out in pairs:
         src = base / rel
         if not src.exists():
             continue
-        dst = target / rel
+        dst = target / out
         dst.parent.mkdir(parents=True, exist_ok=True)
         if src.is_dir():
             shutil.copytree(src, dst, symlinks=False)
         else:
             shutil.copy2(src, dst)
+
+    manifest = target / ".claude-plugin" / "plugin.json"
+    if "manifest" in entry and not manifest.exists():
+        manifest.parent.mkdir(parents=True, exist_ok=True)
+        manifest.write_text(json.dumps(entry["manifest"], indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+    version = ""
+    for meta, pattern in (("pyproject.toml", r'^version\s*=\s*"([^"]+)"'), ("package.json", r'"version"\s*:\s*"([^"]+)"')):
+        f = base / meta
+        if f.exists():
+            m = re.search(pattern, f.read_text(encoding="utf-8"), re.M)
+            if m:
+                version = m.group(1)
+                break
+    for patch in entry.get("patches", []):
+        f = target / patch["file"]
+        text = f.read_text(encoding="utf-8")
+        if patch["old"] not in text:
+            sys.exit(f"{name}: Patch passt nicht mehr in {patch['file']} – Upstream geändert, bitte neu prüfen")
+        f.write_text(text.replace(patch["old"], patch["new"].replace("{upstream_version}", version)), encoding="utf-8")
 
     commit = subprocess.run(["git", "-C", str(upstream), "rev-parse", "--short", "HEAD"],
                             capture_output=True, text=True, check=True).stdout.strip()

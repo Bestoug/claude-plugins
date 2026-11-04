@@ -1,0 +1,9 @@
+{
+  "name": "graphify",
+  "description": "Baut auf Zuruf (/graphify) aus Code, Doku, PDFs und Bildern einen abfragbaren Wissensgraphen. Nur Skill, keine Hooks.",
+  "author": {
+    "name": "Graphify-Labs",
+    "url": "https://github.com/Graphify-Labs/graphify"
+  },
+  "license": "Apache-2.0"
+}
