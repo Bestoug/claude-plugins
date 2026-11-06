@@ -30,6 +30,8 @@ MARKETPLACE = ROOT / ".claude-plugin" / "marketplace.json"
 def build_marketplace(data):
     plugins = []
     for p in data["plugins"]:
+        if p.get("disabled"):
+            continue  # abgeschaltet, Kopie bleibt im Ordner
         manifest = ROOT / "plugins" / p["name"] / ".claude-plugin" / "plugin.json"
         desc = p.get("description", "")
         if manifest.exists():

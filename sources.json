@@ -28,7 +28,9 @@
       "reviewed_commit": "88c79f6",
       "reviewed_date": "2026-11-02",
       "license": "MIT",
-      "notiz": "Ordner tools/ (Marketing-CLIs mit API-Schlüsseln) bewusst nicht übernommen, um die Angriffsfläche klein zu halten."
+      "notiz": "Ordner tools/ (Marketing-CLIs mit API-Schlüsseln) bewusst nicht übernommen, um die Angriffsfläche klein zu halten.",
+      "disabled": true,
+      "disabled_reason": "06.11.2026 abgeschaltet (Jarvis-Umbau): bremst normale Chats; bei Bedarf disabled entfernen und --marketplace-only bauen"
     },
     {
       "name": "feature-dev",
@@ -149,7 +151,9 @@
       "reviewed_date": "2026-11-02",
       "license": "MIT",
       "autor": "Jesse Vincent (obra)",
-      "notiz": "Hook beim Sitzungsstart lädt nur die eigene Skill-Anleitung. Brainstorming-Skill kann lokal einen kleinen Webserver (localhost) starten, der ein Logo von primeradiant.com lädt."
+      "notiz": "Hook beim Sitzungsstart lädt nur die eigene Skill-Anleitung. Brainstorming-Skill kann lokal einen kleinen Webserver (localhost) starten, der ein Logo von primeradiant.com lädt.",
+      "disabled": true,
+      "disabled_reason": "06.11.2026 abgeschaltet (Jarvis-Umbau): bremst normale Chats; bei Bedarf disabled entfernen und --marketplace-only bauen"
     },
     {
       "name": "ponytail",
